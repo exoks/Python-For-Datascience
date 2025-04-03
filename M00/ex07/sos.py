@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/03/27 18:15:17 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/04/03 09:04:27 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/04/03 11:11:40 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪
@@ -36,11 +36,72 @@ def check_args(ac, av) -> bool:
     return (True)
 
 
+# ===[ ft_maketrans or ft_translate: ]=========================================
+# def ft_maketrans(txt: str, table: dict) -> str:
+#     """
+#     ft_maketrans maps between the table the txt given string, It returns
+#     a translated string.
+#     ft_maketrans: ignore case sensitive, It converts all key table: dict keys
+#     to upper case
+#     ft_maketrans raise an KeyError exception if the element is not exist the
+#     table: dict
+#     """
+#     trans_char_list = [table[char.upper()] for char in txt]
+#     translated_txt = "".join(trans_char_list)
+#     return (translated_txt)
+
+
+# ===[ en_to_morse: ]==========================================================
+def en_to_morse(txt: str):
+    NESTED_MORSE = {
+        ' ': '/ ',
+        'A': '.-',
+        'B': '-...',
+        'C': '-.-.',
+        'D': '-..',
+        'E': '.',
+        'F': '..-.',
+        'G': '--.',
+        'H': '....',
+        'I': '..',
+        'J': '.---',
+        'K': '-.-',
+        'L': '.-..',
+        'M': '--',
+        'N': '-.',
+        'O': '---',
+        'P': '.--.',
+        'Q': '--.-',
+        'R': '.-.',
+        'S': '...',
+        'T': '-',
+        'U': '..-',
+        'V': '...-',
+        'W': '.--',
+        'X': '-..-',
+        'Y': '-.--',
+        'Z': '--..',
+        '0': '-----',
+        '1': '.----',
+        '2': '..---',
+        '3': '...--',
+        '4': '....-',
+        '5': '.....',
+        '6': '-....',
+        '7': '--...',
+        '8': '---..',
+        '9': '----.',
+    }
+    for char in txt:
+        print(f"{char}", end="")
+
+
 # ===[ main: ]=================================================================
 def main(ac, av):
     try:
         check_args(ac, av)
-        # en_morse_interpreter(av[1])
+        morse_txt = en_to_morse(av[1])
+        print(morse_txt)
     except Exception:
         print("AssertionError: the arguments are bad")
         sys.exit(1)
@@ -49,3 +110,10 @@ def main(ac, av):
 
 if __name__ == '__main__':
     main(ft_len(sys.argv), sys.argv)
+
+
+# INFO:========================================================================
+# - Morse code is a telecommunications method which encodes text characters   |
+#   as standardized sequences of two different signal durations, called       |
+#   dots and dashes.                                                          |
+# =============================================================================
