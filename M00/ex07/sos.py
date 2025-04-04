@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/03/27 18:15:17 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/04/04 07:32:03 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/04/04 07:48:41 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪
@@ -25,19 +25,27 @@ def ft_len(iterable) -> int:
     return (len)
 
 
-# ===[ morse_encoder: ]======================================================
+# ===[ morse_encoder: ]========================================================
 def morse_encoder(text: str):
     pass
 
 
+# INFO:========================================================================
+# - AssertionError class is a subclass from Exception, It is used to raise    |
+#   an assert error and it is used for debugging purposes.                    |
+# - "assert" is a keyword in python that simplfy the normal syntax for raising|
+#   an error.                                                                 |
+#   > Syntax:                                                                 |
+#     [ assert condition, message ]                                           |
+# =============================================================================
+
 # ===[ main: ]=================================================================
 def main(ac, av):
     try:
-        if (ac != 2):
-            raise Exception("AssertionError: bad arguments")
-        # morse_encoder(av[1])
-    except Exception as msg:
-        print(msg)
+        assert ac == 2, "bad number of argument: argc != 2"
+        morse_encoder(av[1])
+    except AssertionError as msg:
+        print(f"AssertionError: {msg}")
 
 
 if __name__ == '__main__':
