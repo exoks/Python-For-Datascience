@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/03/26 21:50:16 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/03/27 18:11:46 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/04/04 09:59:51 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪
@@ -34,17 +34,17 @@ def ft_len(strObj: str) -> int:
 def is_valid_input(input: str) -> bool:
     for char in input:
         if not (char.isalpha() or char.isalnum() or char.isspace()):
-            raise Exception
+            raise AssertionError(f"invalid character: {char}")
     return True
 
 
 # ===[ parse_args: ]===========================================================
 def parse_args(ac, av):
     if (ac != 3):
-        raise Exception
+        raise AssertionError("the arguments are bad: ac != 3")
     len = int(av[2])
     if (is_valid_input(av[1])):
-        input_list = av[1].split(" ")
+        input_list = av[1].split(' ')
     return input_list, len
 
 
@@ -55,10 +55,8 @@ def main(ac, av):
         iter = ft_filter(lambda word: ft_len(word) > len, input_list)
         filtred_list = [word for word in iter]
         print(filtred_list)
-    except Exception:
-        print("AssertionError: the arguments are bad")
-        sys.exit(1)
-    sys.exit(0)
+    except Exception as msg:
+        print(f"AssertionError: {msg}")
 
 
 if __name__ == '__main__':
