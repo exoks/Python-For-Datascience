@@ -5,7 +5,7 @@
 #  ⢀⠔⠉⠀⠊⠿⠿⣿⠂⠠⠢⣤⠤⣤⣼⣿⣶⣶⣤⣝⣻⣷⣦⣍⡻⣿⣿⣿⣿⡀
 #  ⢾⣾⣆⣤⣤⣄⡀⠀⠀⠀⠀⠀⠀⠀⠉⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇
 #  ⠀⠈⢋⢹⠋⠉⠙⢦⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇       Created: 2025/03/27 18:15:17 by oezzaou
-#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/04/03 11:11:40 by oezzaou
+#  ⠀⠀⠀⠑⠀⠀⠀⠈⡇⠀⠀⠀⠀⣠⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇       Updated: 2025/04/04 07:32:03 by oezzaou
 #  ⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⢀⣾⣿⣿⠿⠟⠛⠋⠛⢿⣿⣿⠻⣿⣿⣿⣿⡿⠀
 #  ⠀⠀⠀⠀⠀⠀⠀⢀⠇⠀⢠⣿⣟⣭⣤⣶⣦⣄⡀⠀⠀⠈⠻⠀⠘⣿⣿⣿⠇⠀
 #  ⠀⠀⠀⠀⠀⠱⠤⠊⠀⢀⣿⡿⣿⣿⣿⣿⣿⣿⣿⠀⠀⠀⠀⠀⠀⠘⣿⠏⠀⠀                             𓆩♕𓆪
@@ -25,16 +25,30 @@ def ft_len(iterable) -> int:
     return (len)
 
 
-# ===[ check_args: ]===========================================================
-def check_args(ac, av) -> bool:
-    if (ac != 2):
-        raise Exception
-    print(f"sos: logger: valid_arg: {av[1]}")
-    for char in av[1]:
-        if (not (char.isspace() or char.isalpha() or char.isalnum())):
-            raise Exception
-    return (True)
+# ===[ morse_encoder: ]======================================================
+def morse_encoder(text: str):
+    pass
 
+
+# ===[ main: ]=================================================================
+def main(ac, av):
+    try:
+        if (ac != 2):
+            raise Exception("AssertionError: bad arguments")
+        # morse_encoder(av[1])
+    except Exception as msg:
+        print(msg)
+
+
+if __name__ == '__main__':
+    main(ft_len(sys.argv), sys.argv)
+
+
+# INFO:========================================================================
+# - Morse code is a telecommunications method which encodes text characters   |
+#   as standardized sequences of two different signal durations, called       |
+#   dots and dashes.                                                          |
+# =============================================================================
 
 # ===[ ft_maketrans or ft_translate: ]=========================================
 # def ft_maketrans(txt: str, table: dict) -> str:
@@ -49,71 +63,3 @@ def check_args(ac, av) -> bool:
 #     trans_char_list = [table[char.upper()] for char in txt]
 #     translated_txt = "".join(trans_char_list)
 #     return (translated_txt)
-
-
-# ===[ en_to_morse: ]==========================================================
-def en_to_morse(txt: str):
-    NESTED_MORSE = {
-        ' ': '/ ',
-        'A': '.-',
-        'B': '-...',
-        'C': '-.-.',
-        'D': '-..',
-        'E': '.',
-        'F': '..-.',
-        'G': '--.',
-        'H': '....',
-        'I': '..',
-        'J': '.---',
-        'K': '-.-',
-        'L': '.-..',
-        'M': '--',
-        'N': '-.',
-        'O': '---',
-        'P': '.--.',
-        'Q': '--.-',
-        'R': '.-.',
-        'S': '...',
-        'T': '-',
-        'U': '..-',
-        'V': '...-',
-        'W': '.--',
-        'X': '-..-',
-        'Y': '-.--',
-        'Z': '--..',
-        '0': '-----',
-        '1': '.----',
-        '2': '..---',
-        '3': '...--',
-        '4': '....-',
-        '5': '.....',
-        '6': '-....',
-        '7': '--...',
-        '8': '---..',
-        '9': '----.',
-    }
-    for char in txt:
-        print(f"{char}", end="")
-
-
-# ===[ main: ]=================================================================
-def main(ac, av):
-    try:
-        check_args(ac, av)
-        morse_txt = en_to_morse(av[1])
-        print(morse_txt)
-    except Exception:
-        print("AssertionError: the arguments are bad")
-        sys.exit(1)
-    sys.exit(0)
-
-
-if __name__ == '__main__':
-    main(ft_len(sys.argv), sys.argv)
-
-
-# INFO:========================================================================
-# - Morse code is a telecommunications method which encodes text characters   |
-#   as standardized sequences of two different signal durations, called       |
-#   dots and dashes.                                                          |
-# =============================================================================
