@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ft_package"
+version = "0.1.0"
+description = "A demo package"
+authors = [{ name = "oezzaou", email = "oussama.ezzaou@gmail.com" }]
+readme = "README.md"
+license = { text = "MIT" }
+dependencies = ["requests"]
