@@ -4,9 +4,11 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "ft_package"
-version = "0.1.0"
+version = "0.0.1"
 description = "A demo package"
-authors = [{ name = "oezzaou", email = "oussama.ezzaou@gmail.com" }]
+home-page = ["https://github.com/exoks/ft_package"]
+authors = [{name = "oezzaou"}] 
+authors-email = "oezzaou@student.1337.ma"
 readme = "README.md"
 license = { text = "MIT" }
 dependencies = ["requests"]
