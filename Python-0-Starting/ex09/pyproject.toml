@@ -12,4 +12,3 @@ authors = [
 
 readme = "README.md"
 license = { text = "MIT" }
-dependencies = ["requests"]
